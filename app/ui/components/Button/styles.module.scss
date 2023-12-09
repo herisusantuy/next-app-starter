@@ -1,0 +1,16 @@
+.btn {
+  font-family: $roboto;
+}
+
+.btn--sm {
+  height: rem(34);
+}
+
+.btn--lg {
+  height: rem(40);
+  border-radius: rem(20);
+
+  &:before {
+    border-radius: rem(20) !important;
+  }
+}

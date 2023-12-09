@@ -1,6 +1,6 @@
 import { MouseEvent, ReactNode } from 'react';
 
-import styles from './Button.module.scss';
+import styles from './styles.module.scss';
 
 type ButtonProps = {
   children: ReactNode;
@@ -23,13 +23,29 @@ type ButtonProps = {
 const Button = ({
   children,
   className,
+  onClick,
   title,
   size = 'lg',
   type = 'button',
   variant,
   disabled
 }: ButtonProps) => {
-  return <button>{children}</button>;
+  const getButtonClass = () => {
+    const classList = [styles.btn];
+    return classList.join(' ');
+  };
+  return (
+    <button
+      className={getButtonClass()}
+      type={type}
+      onClick={onClick}
+      title={title}
+      aria-label={title}
+      disabled={disabled}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Button;
